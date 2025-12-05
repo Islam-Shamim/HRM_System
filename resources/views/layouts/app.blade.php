@@ -24,7 +24,7 @@
   <div class="container">
     <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
       <span class="brand-logo me-2" aria-hidden="true"></span>
-      <span class="fw-semibold">HRM</span>
+      <span class="fw-semibold">HRM System</span>
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -32,9 +32,9 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         @auth
-        <li class="nav-item"><a class="nav-link" href="{{ route('employees.index') }}">Employees</a></li>
-        <li class="nav-item"><a class="nav-link" href="{{ route('departments.index') }}">Departments</a></li>
-        <li class="nav-item"><a class="nav-link" href="{{ route('skills.index') }}">Skills</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ route('employees.index') }}"><i class="fas fa-users me-1"></i>Employees</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ route('departments.index') }}"><i class="fas fa-building me-1"></i>Departments</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ route('skills.index') }}"><i class="fas fa-star me-1"></i>Skills</a></li>
         @endauth
       </ul>
       <ul class="navbar-nav ms-auto">
@@ -52,9 +52,7 @@
       </ul>
     </div>
   </div>
-  </nav>
-
-<div class="container">
+</nav><div class="container">
     @if(session('success'))
         <div class="alert alert-success">{{ session('success') }}</div>
     @endif
@@ -66,11 +64,11 @@
 </div>
 <footer class="border-top mt-5 py-4 bg-white">
   <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
-    <div class="text-muted small">&copy; {{ date('Y') }} HRM System</div>
+    <div class="text-muted small">&copy; {{ date('Y') }} HRM System. All rights reserved.</div>
     <div class="mt-2 mt-md-0">
       <a href="#" class="text-decoration-none me-3 small text-muted">About</a>
       <a href="#" class="text-decoration-none me-3 small text-muted">Contact</a>
-      <a href="#" class="text-decoration-none small text-muted">Privacy</a>
+      <a href="#" class="text-decoration-none small text-muted">Privacy Policy</a>
     </div>
   </div>
 </footer>

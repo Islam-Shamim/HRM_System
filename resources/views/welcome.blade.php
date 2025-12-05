@@ -19,39 +19,76 @@
             </style>
         @endif
     </head>
-    <body class="bg-[#FDFDFC] dark:bg-[#0a0a0a] text-[#1b1b18] flex p-6 lg:p-8 items-center lg:justify-center min-h-screen flex-col">
-        <header class="w-full lg:max-w-4xl max-w-[335px] text-sm mb-6 not-has-[nav]:hidden">
-            @if (Route::has('login'))
-                <nav class="flex items-center justify-end gap-4">
+    <body style="margin: 0; padding: 0; font-family: 'Inter', sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh;">
+        <nav style="background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07); padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; position: fixed; width: 100%; top: 0; z-index: 1000;">
+            <div style="font-size: 1.5rem; font-weight: 700; color: #667eea; display: flex; align-items: center; gap: 0.5rem;">
+                <div style="width: 32px; height: 32px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">H</div>
+                HRM System
+            </div>
+            <div style="display: flex; align-items: center;">
+                @if (Route::has('login'))
                     @auth
-                        <a
-                            href="{{ url('/dashboard') }}"
-                            class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal"
-                        >
-                            Dashboard
-                        </a>
+                        <a href="{{ url('/dashboard') }}" style="color: #667eea; text-decoration: none; font-weight: 600; margin-right: 1.5rem;">Dashboard</a>
+                        <form method="POST" action="{{ route('logout') }}" style="display: inline;">
+                            @csrf
+                            <button type="submit" style="padding: 0.5rem 1.5rem; border-radius: 8px; border: 2px solid #667eea; background: #667eea; color: white; font-weight: 600; cursor: pointer; transition: all 0.3s;">Logout</button>
+                        </form>
                     @else
-                        <a
-                            href="{{ route('login') }}"
-                            class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] text-[#1b1b18] border border-transparent hover:border-[#19140035] dark:hover:border-[#3E3E3A] rounded-sm text-sm leading-normal"
-                        >
-                            Log in
-                        </a>
-
-                        @if (Route::has('register'))
-                            <a
-                                href="{{ route('register') }}"
-                                class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal">
-                                Register
-                            </a>
-                        @endif
+                        <a href="{{ route('login') }}" style="color: #4b5563; text-decoration: none; margin-right: 1.5rem; font-weight: 500;">Login</a>
+                        <a href="{{ route('register') }}" style="padding: 0.5rem 1.5rem; border-radius: 8px; border: 2px solid #667eea; color: #667eea; text-decoration: none; font-weight: 600; transition: all 0.3s;">Get Started</a>
                     @endauth
-                </nav>
-            @endif
-        </header>
+                @endif
+            </div>
+        </nav>
 
-        @if (Route::has('login'))
-            <div class="h-14.5 hidden lg:block"></div>
-        @endif
+        <section style="display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 2rem; margin-top: -80px;">
+            <div style="max-width: 1200px; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;">
+                <div style="padding: 2rem;">
+                    <h1 style="font-size: 3.5rem; color: white; margin-bottom: 1rem; font-weight: 800; line-height: 1.2;">Streamline Your HR Operations</h1>
+                    <p style="font-size: 1.2rem; color: rgba(255, 255, 255, 0.9); margin-bottom: 2rem;">Manage employees, departments, and skills with our modern, intuitive HRM system. Designed to simplify and enhance your workforce management.</p>
+                    <div style="display: flex; gap: 1rem;">
+                        @if (Route::has('login'))
+                            @guest
+                                <a href="{{ route('register') }}" style="padding: 1rem 2.5rem; background: white; color: #667eea; border: none; border-radius: 10px; font-size: 1rem; font-weight: 700; cursor: pointer; transition: all 0.3s; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); text-decoration: none; display: inline-block;">Start Free</a>
+                                <a href="{{ route('login') }}" style="padding: 1rem 2.5rem; background: transparent; color: white; border: 2px solid white; border-radius: 10px; font-size: 1rem; font-weight: 700; cursor: pointer; transition: all 0.3s; text-decoration: none; display: inline-block;">Sign In</a>
+                            @else
+                                <a href="{{ url('/dashboard') }}" style="padding: 1rem 2.5rem; background: white; color: #667eea; border: none; border-radius: 10px; font-size: 1rem; font-weight: 700; cursor: pointer; transition: all 0.3s; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); text-decoration: none; display: inline-block;">Go to Dashboard</a>
+                            @endguest
+                        @endif
+                    </div>
+                </div>
+                <div style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border-radius: 15px; padding: 2rem; border: 1px solid rgba(255, 255, 255, 0.2); display: flex; flex-direction: column; gap: 1.5rem; animation: float 3s ease-in-out infinite;">
+                    <div style="background: rgba(255, 255, 255, 0.95); padding: 1.5rem; border-radius: 10px; display: flex; gap: 1rem;">
+                        <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; flex-shrink: 0;">👥</div>
+                        <div>
+                            <h3 style="color: #667eea; margin-bottom: 0.25rem; font-weight: 600;">Employee Management</h3>
+                            <p style="color: #6b7280; font-size: 0.9rem; margin: 0;">Track and manage all employee information in one place</p>
+                        </div>
+                    </div>
+                    <div style="background: rgba(255, 255, 255, 0.95); padding: 1.5rem; border-radius: 10px; display: flex; gap: 1rem;">
+                        <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; flex-shrink: 0;">🏢</div>
+                        <div>
+                            <h3 style="color: #667eea; margin-bottom: 0.25rem; font-weight: 600;">Department Organization</h3>
+                            <p style="color: #6b7280; font-size: 0.9rem; margin: 0;">Organize employees by departments efficiently</p>
+                        </div>
+                    </div>
+                    <div style="background: rgba(255, 255, 255, 0.95); padding: 1.5rem; border-radius: 10px; display: flex; gap: 1rem;">
+                        <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; flex-shrink: 0;">⭐</div>
+                        <div>
+                            <h3 style="color: #667eea; margin-bottom: 0.25rem; font-weight: 600;">Skill Tracking</h3>
+                            <p style="color: #6b7280; font-size: 0.9rem; margin: 0;">Monitor and develop employee skills and competencies</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <style>
+            @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-20px); } }
+            @media (max-width: 768px) {
+                nav { flex-wrap: wrap; }
+                section div { grid-template-columns: 1fr; }
+            }
+        </style>
     </body>
 </html>
