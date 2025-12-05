@@ -41,7 +41,7 @@
             </div>
         </nav>
 
-        <section style="display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 2rem; margin-top: -80px;">
+        <section style="display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 2rem; margin-top: 20px;">
             <div style="max-width: 1200px; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;">
                 <div style="padding: 2rem;">
                     <h1 style="font-size: 3.5rem; color: white; margin-bottom: 1rem; font-weight: 800; line-height: 1.2;">Streamline Your HR Operations</h1>
