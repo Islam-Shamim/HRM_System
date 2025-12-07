@@ -7,10 +7,10 @@
 </div>
 
 <table class="table">
-  <thead><tr><th>#</th><th>Name</th></tr></thead>
+  <thead><tr><th>Name</th></tr></thead>
   <tbody>
     @foreach($departments as $d)
-      <tr><td>{{ $d->id }}</td><td>{{ $d->name }}</td></tr>
+      <tr><td>{{ $d->name }}</td></tr>
     @endforeach
   </tbody>
 </table>

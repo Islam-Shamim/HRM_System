@@ -7,10 +7,10 @@
 </div>
 
 <table class="table">
-  <thead><tr><th>#</th><th>Name</th></tr></thead>
+  <thead><tr><th>Name</th></tr></thead>
   <tbody>
     @foreach($skills as $s)
-      <tr><td>{{ $s->id }}</td><td>{{ $s->name }}</td></tr>
+      <tr><td>{{ $s->name }}</td></tr>
     @endforeach
   </tbody>
 </table>

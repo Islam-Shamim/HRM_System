@@ -22,7 +22,6 @@
 <table class="table" id="employees-table">
   <thead>
     <tr>
-      <th>#</th>
       <th>Name</th>
       <th>Email</th>
       <th>Department</th>
@@ -33,7 +32,6 @@
   <tbody>
     @foreach($employees as $employee)
     <tr>
-      <td>{{ $employee->id }}</td>
       <td>{{ $employee->first_name }} {{ $employee->last_name }}</td>
       <td>{{ $employee->email }}</td>
       <td>{{ $employee->department->name ?? '' }}</td>
